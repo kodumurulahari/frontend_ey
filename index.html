@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Project Management Application built with React and Vite" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Primary Meta Tags -->
+    <title>ProjectHub - Project Management</title>
+    <meta name="title" content="ProjectHub - Project Management">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+      rel="stylesheet"
+    >
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <style>
+      /* Custom styles to prevent FOUC (Flash of Unstyled Content) */
+      html {
+        background-color: #f3f4f6;
+      }
+      
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        height: 100vh;
+      }
+      
+      /* Loading spinner styles */
+      .initial-loader {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .initial-loader::after {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Application root -->
+    <div id="root">
+      <!-- Initial loading state -->
+      <div class="initial-loader"></div>
+    </div>
+    
+    <!-- Portal root for modals -->
+    <div id="portal-root"></div>
+    
+    <!-- Error boundary fallback -->
+    <div id="error-root" style="display: none;">
+      <div style="padding: 20px; text-align: center;">
+        <h2>Something went wrong</h2>
+        <button onclick="window.location.reload()">Reload Page</button>
+      </div>
+    </div>
+    
+    <!-- Entry script -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Fallback script for older browsers -->
+    <script nomodule>
+      document.body.innerHTML = 
+        'Please use a modern browser to access this application.';
+    </script>
+  </body>
+</html>
